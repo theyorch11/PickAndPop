@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Paco (IP Soluciones) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Paco (I) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://jnum.com/config" xmlns:cfg="http://jnum.com/config"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="config">
+		<xs:annotation>
+			<xs:documentation>Parametros de configuracion adicionales (urls,
+				usuarios, claves, etc.) para la generacion de codigo.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="jndi" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							Parametros de configuracion del contexto
+							JNDI
+							(InitialContext).
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="factoryInitial" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Clase utilizada para obtener el
+										contexto
+										inicial. Por defecto,
+										tomara el valor
+										"org.jnp.interfaces.NamingContextFactory"
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="providerUrl" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										URL necesaria para obtener el
+										contexto
+										inicial. Por defecto,
+										tomara el valor
+										"jnp://localhost:1099"
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="securityPrincipal" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Principal necesario para obtener
+										el contexto
+										inicial. Por
+										defecto, tomara el valor
+										"admin".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="securityCredentials" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Credenciales necesarios para
+										obtener el
+										contexto inicial. Por
+										defecto, tomara el valor
+										"admin".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="database" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>
+							Parametros de configuracin de la base de
+							datos.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="datasource" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Ruta JNDI donde se encuentra la
+										fuente de
+										datos a utilizar. Por
+										defecto, tomara el valor
+										"java:jdbc/" +
+										${proyecto} +
+										"DS".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="driver" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Driver Jdbc para conectar con la
+										base de
+										datos.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="schema" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Nombre del schema de la base de
+										datos
+										(opcional).
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="url" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Cadena de conexion via JDBC, no
+										necesaria si
+										se indica
+										datasource.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="dialect" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Clase de dialecto (hibernate)
+										utilizada para
+										comunicarse con
+										la base de datos. Por defecto,
+										tomara el valor
+										"org.hibernate.dialect.PostgreSQLDialect".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="username" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Nombre del usuario utilizado
+										para conectar a
+										la base de
+										datos. Por defecto, tomara el
+										valor del nombre del
+										proyecto en
+										minusculas.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="password" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Clave utilizada para conectar a
+										la base de
+										datos. Por defecto,
+										tomara el valor del nombre del
+										proyecto en
+										minusculas.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="transactionManagerLookup" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Clase utilizada (hibernate) para
+										obtener el
+										gestor de
+										transacciones. Por defecto,
+										tomara el valor
+										"org.hibernate.transaction.JBossTransactionManagerLookup".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="showSql" type="xs:boolean"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Indica si se muestran por la
+										consola las
+										sentencias SQL
+										ejecutadas. Por defecto, tomara
+										el valor "true".
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="codigo">
+					<xs:annotation>
+						<xs:documentation>
+							Parametros de configuracion que afectan al
+							codigo fuente de la aplicacion.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="artifactId" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Nomenclatura del artifactId de
+										la aplicacion.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="paquete" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Nomenclatura base que se dara a
+										todos los
+										paquetes de la
+										aplicacion.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="directorio" type="xs:string"
+								minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Nomenclatura base que se dara a
+										todos los
+										paquetes de la
+										aplicacion en formato
+										directorio.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="defaultValues">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="modulo" type="xs:string">
+							</xs:element>
+							<xs:element name="filas" type="xs:unsignedInt">
+							</xs:element>
+							<xs:element name="filasDetalle" type="xs:unsignedInt">
+							</xs:element>
+							<xs:element name="filasSelector" type="xs:unsignedInt">
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="menu" type="cfg:menuItem" minOccurs="0"
+					maxOccurs="1">
+				</xs:element>
+				<xs:element name="atributos" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="image" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="maxSize" type="xs:unsignedLong"
+											minOccurs="0" maxOccurs="1">
+										</xs:element>
+										<xs:element name="validMimeTypes" type="xs:string"
+											minOccurs="0" maxOccurs="1">
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="video" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="validMimeTypes" type="xs:string"
+											minOccurs="0" maxOccurs="1">
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="visual" maxOccurs="1" minOccurs="0">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="flow" type="xs:boolean" maxOccurs="1"
+								minOccurs="0">
+							</xs:element>
+							<xs:element name="ajax" type="xs:boolean" minOccurs="0"
+								maxOccurs="1">
+							</xs:element>
+							<xs:element name="width" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="forms" type="xs:string"
+											minOccurs="0" maxOccurs="1">
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="defaultLocale" type="xs:string"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>
+				<xs:element name="pattern" type="xs:string"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>	
+				<xs:element name="timezone" type="xs:string"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>								
+				<xs:element name="dateformat" type="xs:string" minOccurs="1"
+					maxOccurs="1"></xs:element>
+				<xs:element name="locales" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence minOccurs="1" maxOccurs="unbounded">
+							<xs:element name="locale">										
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="codigo" type="xs:string">
+										</xs:element>
+										<xs:element name="nombre" type="xs:string">
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="usewidth" type="xs:boolean" minOccurs="0" maxOccurs="1"></xs:element>					
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="menuItem">
+		<xs:choice>
+			<xs:element name="entidad" type="xs:string"></xs:element>
+			<xs:element name="styleMenu" type="xs:string" minOccurs="0"
+				maxOccurs="1"></xs:element>
+			<xs:element name="custom">
+				<xs:complexType>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="parametro">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="clave" type="xs:string"></xs:element>
+									<xs:element name="valor" type="xs:string"></xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="title" type="xs:string" maxOccurs="1"
+					minOccurs="0"></xs:element>
+				<xs:element name="icon" type="xs:string" maxOccurs="1"
+					minOccurs="0"></xs:element>
+				<xs:element name="modulo" type="xs:string" maxOccurs="1"
+					minOccurs="0"></xs:element>
+				<xs:element name="item" type="cfg:menuItem" minOccurs="0"
+					maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+
+</xs:schema>

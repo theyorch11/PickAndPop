@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<director xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../../resources/director.xsd">
+ <compartido>
+    <includes>
+      <include>include/functions.template</include>
+      <include>include/javaMacros.template</include>
+      <include>include/jspMacros.template</include>
+      <include>include/viewMacros.template</include>
+      <include>include/validationFunctions.template</include>      
+    </includes>
+    <variables>
+      <variable>
+        <tipo>class</tipo>
+        <nombre>parseDefinicion</nombre>
+        <valor>com.jnum.workingset.view.DefinitionParserMethodModel</valor>
+      </variable>
+      <variable>
+        <tipo>template</tipo>
+        <nombre>definiciones</nombre>
+        <valor>loadDefiniciones()</valor>
+      </variable>
+    </variables>
+    <shortcuts>
+      <shortcut>
+        <nombre>MayusculasEntidad</nombre>
+        <expresion>${firstUpper(entidad.nombre)}</expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>ModuloEntidad</nombre>
+        <expresion>
+          ${defaultFunction(entidad.modulo,
+          config.defaultValues.modulo)}
+        </expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>esPersistida</nombre>
+        <expresion>
+          ( (empty entidad.opciones) || (!
+          entidad.opciones.noPersistida) )
+        </expresion>
+      </shortcut>
+
+      <!--  Tipos de entidad -->
+      <shortcut>
+        <nombre>esEntidadNormal</nombre>
+        <expresion>
+          (! ( @esEntidadRegistro@ || @esFormulario@ ))
+        </expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>esEntidadRegistro</nombre>
+        <expresion>(entidad.tipoAtributo == 'registro')</expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>esFormulario</nombre>
+        <expresion>(entidad.tipoAtributo == 'formulario')</expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>estaCustomizada</nombre>
+        <expresion>
+          ( (! empty entidad.opciones) &amp;&amp; (! empty
+          entidad.opciones.customizada) &amp;&amp;
+          entidad.opciones.customizada)
+        </expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>directorio</nombre>
+        <expresion>${config.codigo.directorio}</expresion>
+      </shortcut>
+      <shortcut>
+       <nombre>esFlow</nombre>
+        <expresion>( (@esEntidadNormal@) &amp;&amp; ((empty config.visual) || (config.visual.flow)) )</expresion>
+      </shortcut>
+      <shortcut>
+        <nombre>esNoFlow</nombre>
+        <expresion>( (@esEntidadNormal@) &amp;&amp; (!(empty config.visual) &amp;&amp; !(config.visual.flow)) )</expresion>
+      </shortcut>
+      <shortcut>
+       <nombre>agregable</nombre>
+        <expresion>( (empty entidad.visual) || (empty entidad.visual.adicion) || (entidad.visual.adicion.agregable))</expresion>
+      </shortcut>
+      <shortcut>
+       <nombre>editable</nombre>
+        <expresion>( (empty entidad.visual) || (empty entidad.visual.edicion) || (entidad.visual.edicion.editable))</expresion>
+      </shortcut>
+
+    </shortcuts>
+  </compartido>
+	<!-- 
+	<plantillas>
+		<plantilla>
+			<nombre>example</nombre>
+			<directorio></directorio>
+			<fichero>example.txt</fichero>
+			<ambito>todas</ambito>
+			<exitOnError />
+		</plantilla>
+	</plantillas>	 
+ -->
+</director>

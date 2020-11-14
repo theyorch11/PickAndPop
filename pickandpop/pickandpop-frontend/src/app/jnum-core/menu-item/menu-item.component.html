@@ -1,0 +1,17 @@
+
+<div class="dropdown-menu" [attr.aria-labelledby]="parentId">
+  <span *ngFor="let child of items">
+    <!-- Handle branch node menu items -->
+    <span *ngIf="child.children && child.children.length > 0" class="dropdown-submenu">
+		<a class="dropdown-item dropdown-toggle" href="#" id="{{child.displayName}}Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" appHasPermission permission="{{child.permission}}">
+    			 	<i class="{{child.iconName}}"></i><span>{{child.displayName}}</span>
+		</a>
+    	<app-menu-item #menu [items]="child.children" [parentId]="child.displayName+'Dropdown'" ></app-menu-item>          
+    </span>
+    <!-- Handle leaf node menu items -->
+    <span *ngIf="!child.children || child.children.length === 0" >
+      <a class="dropdown-item" href="#" [routerLink]="child.route" appHasPermission permission="{{child.permission}}"><i class="{{child.iconName}}"></i><span>{{child.displayName}}</span></a>
+    </span>
+  </span>
+</div>
+  

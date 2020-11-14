@@ -1,0 +1,19 @@
+spring:
+  datasource:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost/pickandpop
+      username: pickandpop
+      password: pickandpop
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+  profiles:
+    active: prod
+logging:
+  level:
+    root: error   
+server:
+  port: 8081
+  compression:
+      enabled: true
+      mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+      min-response-size: 1024

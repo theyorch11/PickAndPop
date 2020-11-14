@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="card card-container">
+		<img id="profile-img" class="profile-img-card"
+			src="assets/images/jnum.png" />
+		<p id="profile-name" class="profile-name-card"></p>
+		<form class="form-horizontal" [formGroup]="loginForm">
+			<span id="reauth-email" class="reauth-email"></span>
+			<div class="form-group">
+				<div class="input-group mb-3">
+					<input type="email" formControlName="username" class="form-control"
+						id="username" aria-describedby="emailHelp"
+						placeholder="{{'login.username'|translate}}" required>
+					<div class="input-group-append">
+						<span class="input-group-text" id="basic-addon2"><i
+							class="fas fa-user"></i></span>
+					</div>
+				</div>
+				<app-show-errors [control]="username"></app-show-errors>
+			</div>
+			<div class="form-group">
+				<div class="input-group mb-3">
+					<input class="form-control" type="password" id="key"
+						formControlName="key" placeholder="{{'login.password'|translate}}"
+						required>
+					<div class="input-group-append">
+						<span class="input-group-text" id="basic-addon2"><i
+							class="fas fa-lock"></i></span>
+					</div>
+				</div>
+				<app-show-errors [control]="key"></app-show-errors>
+			</div>
+			<div class="button-row">
+				<button class="btn btn-lg btn-primary btn-block btn-signin"
+					(click)="onSubmit()">
+					<i class="fas fa-sign-in-alt"
+						title="{{'global.acceder'|translate}}" [attr.aria-label]="'global.acceder'|translate"></i>
+				</button>
+			</div>
+		</form>
+		<!-- /form -->
+	</div>
+	<!-- /card-container -->
+</div>
+<!-- /container -->

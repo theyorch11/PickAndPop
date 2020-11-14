@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pickandpop
+  profiles:
+    active: '@spring.profiles.active@'   
+
+jnum:
+  swagger:
+    title: Pickandpop
+    description: Arquetipo  con Spring y JPA
+    version: 1.0
+    termsofserviceurl: http://www.jnum.com
+    license: Free
+    licenseurl: http://www.jnum.com  
+    contact:
+      name: Leandro Mallo
+      url: http://www.jnum.com
+      mail: lmallo@gmail.com
+      

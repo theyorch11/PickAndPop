@@ -1,0 +1,12 @@
+
+<div class="modal-header">
+<h2 mat-dialog-title>{{data.titulo}}</h2>
+</div>
+<div class="modal-body">
+<p>{{data.content}}</p>
+</div>
+<div class="modal-footer">
+		<button type="button" *ngIf="!cancelVisible" class="btn btn-primary" (click)="closeModal()" data-dismiss="modal">{{'false'|translate}}</button>
+        <button type="button" *ngIf="!cancelVisible" (click)="onTrue()">{{'true'|translate}}</button>  
+        <button type="button" *ngIf="cancelVisible" (click)="onTrue()">{{'global.cerrar'|translate}}</button>        
+</div>

@@ -1,0 +1,37 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost/pickandpop
+      username: pickandpop
+      password: pickandpop
+      initialization-mode: always       
+      data: classpath:/data.sql
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+  profiles:
+    active: dev
+    include: swagger    
+  jackson:
+    time-zone: Europe/Madrid
+    locale: es_ES 
+  elasticsearch:
+    jest:
+      uris:
+      - http://localhost:8080
+  session:
+    jdbc:
+      initialize-schema: always
+      logging:
+  level:
+    root: warn
+    org.springframework: info
+    javax.persistence: info
+    #org.hibernate.type: trace
+server:
+  port: 8080

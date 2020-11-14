@@ -1,0 +1,63 @@
+<div class="modal-header">
+<h2 mat-dialog-title>{{'global.sort'|translate}}</h2>
+</div>
+<form [formGroup]="sortForm" (submit)="onSubmit()">
+<div class="modal-body">
+    <div class="form-group">
+		<div class="row">
+			<div class="col-12">
+				<div class="direction">
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="ascendente" name="direction"  value="asc"				
+					formControlName="direction" class="custom-control-input">
+					<label class="custom-control-label" for="ascendente">Ascendente</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="descendente" name="direction" value="desc"				
+					formControlName="direction" class="custom-control-input">
+					<label class="custom-control-label" for="descendente">Descendente</label>
+				</div>
+			</div>
+			</div>
+		  <div class="col-6">
+		    <div class="list-group " id="list-tab-disponibles" role="tablist" cdkDropList #camposdisponiblesList="cdkDropList" [cdkDropListConnectedTo]="[camposasignadosList]" 
+		    [cdkDropListData]="camposdisponibles" (cdkDropListDropped)="drop($event)" cdkDropListSortingDisabled>
+			  <span class="list-group-item-header">{{'global.disponibles'|translate}}</span>
+			  <div #scrollEl cdk-scrollable class="list-scroll">
+				<div class="list-group-item list-group-item-action" *ngFor="let item of camposdisponibles" cdkDrag>	                
+	                <span>{{item.label}}</span>
+				</div>		      	     
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-6">
+			<div class="list-group" id="list-tab-asignados" role="tablist" cdkDropList #camposasignadosList="cdkDropList" [cdkDropListConnectedTo]="[camposdisponiblesList]"  
+			[cdkDropListData]="camposasignados" (cdkDropListDropped)="drop($event)">
+			  <span class="list-group-item-header">{{'global.asignados'|translate}}</span>
+			  <div #scrollEl cdk-scrollable class="list-scroll">
+				<div class="list-group-item list-group-item-action" *ngFor="let item of camposasignados" cdkDrag>
+	                <span>{{item.label}}</span>
+				</div>			      
+			</div>
+		    </div>
+		  </div>	
+		</div>
+    </div>
+	<nav class="mb-1 navbar navbar-expand-lg search-toolbar">
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+	    <ul class="navbar-nav ml-auto nav-flex-icons">
+	      <li class="nav-item">
+	        <a class="nav-link waves-effect waves-light">
+	          <i title="{{'global.buscar'|translate}}" class="fas fa-search" [attr.aria-label]="'global.buscar'|translate" (click)="onSubmit()"></i>
+	        </a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link waves-effect waves-light">
+			  <i title="{{'global.limpiar'|translate}}" class="fas fa-eraser" [attr.aria-label]="'global.limpiar'|translate" (click)="clearSort()"></i>
+			</a>
+		  </li>		  
+	    </ul>
+	  </div>
+	</nav>			     
+</div>
+</form>

@@ -1,0 +1,21 @@
+::ng-deep .mat-list-base[dense] .mat-list-item .mat-list-item-content, .mat-list-base[dense] .mat-list-option .mat-list-item-content{
+	padding: 0 0px;
+	border-radius: 0;
+	background-color: var(--main-bg-color-alpha3);
+}
+
+::ng-deep .mat-list-base[dense]{
+	padding-top: 0px!important;
+}
+
+.mat-expanded.mat-expansion-panel-header, .mat-expanded.mat-expansion-panel-header:hover,.mat-expansion-panel-header:not([aria-disabled=true]),.mat-expansion-panel-header:not([aria-disabled=true]):hover{
+	background-color: var(--main-bg-color-alpha);
+}
+
+::ng-deep .mat-expansion-panel{
+	display: inherit;
+}
+
+.mat-list-item .mat-icon-no-color,.mat-list-item span{
+	color:#000;
+}

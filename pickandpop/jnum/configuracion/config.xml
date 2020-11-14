@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://jnum.com/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jnum.com/config ../esquemas/config.xsd ">
+	<codigo>
+		<artifactId>pickandpop</artifactId>
+		<paquete>com.jorge.pickandpop</paquete>
+		<directorio>com/jorge/pickandpop</directorio>
+	</codigo>
+	<dateformat>dd/MM/yyyy</dateformat>
+	<defaultValues>
+		<modulo>comun</modulo>
+		<filas>10</filas>
+		<filasDetalle>5</filasDetalle>
+		<filasSelector>15</filasSelector>
+	</defaultValues>
+	<defaultLocale>es_ES</defaultLocale>
+	<pattern>yyyy-MM-dd'T'HH:mm:ss.SSS</pattern>
+	<timezone>Europe/Madrid</timezone>	
+	<locales>
+		<locale>
+			<codigo>es_ES</codigo>
+			<nombre>Español</nombre>
+		</locale>	
+	</locales>
+	<menu>
+		<item><title>Seguridad</title>
+			  	<icon>fa fa-shield-alt</icon>
+			  	<modulo>seguridad</modulo>
+				<item><icon>fas fa-user-alt</icon><entidad>user</entidad></item>
+				<item><icon>fas fa-users</icon><entidad>rol</entidad></item>
+				<item><icon>fas fa-layer-group</icon><entidad>grupoPermiso</entidad></item>				
+		</item>	
+	</menu>
+	<visual>
+		<flow>true</flow><!--  no modificar esta propiedad. Reservado para futuro  -->
+		<ajax>true</ajax><!--  no modificar esta propiedad. Reservado para futuro  -->
+		<width><forms>12</forms></width>
+	</visual>
+	<usewidth>true</usewidth>
+	<hasVersion>true</hasVersion>
+</config>

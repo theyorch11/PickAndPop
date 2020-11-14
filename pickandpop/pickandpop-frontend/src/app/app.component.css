@@ -1,0 +1,35 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+}
+
+
+
+.my-2{
+	background-color: var(--main-bg-color);
+	min-height: 48px;
+	text-align: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary{
+	background-color: var(--main-bg-color);
+	color: #fff;
+	margin-bottom: 20px;
+	height: 48px;
+}
+
+
+.example-container .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing){
+	border-radius: 0!important;
+}
+
+
+

@@ -1,0 +1,7 @@
+::ng-deep  .mat-expansion-panel-content .mat-expansion-panel-body{
+	padding: 0 0px 0px;
+}
+::ng-deep .mat-accordion .mat-expansion-panel:last-of-type,.mat-accordion .mat-expansion-panel:first-of-type{
+	border-radius: 0!important;
+}
+

@@ -1,0 +1,6 @@
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li><a (click)="goHome()" class="breadcrumb-item">Home</a></li>
+		<li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item active">{{breadcrumb.label }}</li>
+	</ol>
+</nav>
